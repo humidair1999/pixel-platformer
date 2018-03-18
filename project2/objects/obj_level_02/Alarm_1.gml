@@ -1,0 +1,1 @@
+/// @description Ghost spawner cooldown

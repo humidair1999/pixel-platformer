@@ -1,0 +1,25 @@
+/// @description Player idle state
+/// player_state_idle();
+
+if (state_new) {
+    vx = 0;
+    vy = 0;
+
+    sprite_state = "idling";
+}
+
+if (kLeft || kRight /* && !sticking */) {
+  state_switch("Walk");
+}
+
+if (kDodge && canDodge /* stamina >= dodgeStaminaCost */) {
+  state_switch("Dodge");
+}
+
+player_util_attack();
+
+player_util_jump();
+
+if (!onGround) {
+  state_switch("Air");
+}
